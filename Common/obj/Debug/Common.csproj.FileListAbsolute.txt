@@ -1,0 +1,12 @@
+D:\learnetproj\Social_Platform_Migration\Common\bin\Debug\Common.dll
+D:\learnetproj\Social_Platform_Migration\Common\bin\Debug\Common.pdb
+D:\learnetproj\Social_Platform_Migration\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+D:\learnetproj\Social_Platform_Migration\Common\obj\Debug\Common.dll
+D:\learnetproj\Social_Platform_Migration\Common\obj\Debug\Common.pdb
+D:\Social_Platform_Migration\Common\bin\Debug\Common.dll
+D:\Social_Platform_Migration\Common\bin\Debug\Common.pdb
+D:\Social_Platform_Migration\Common\bin\Debug\Microsoft.SharePoint.Client.dll
+D:\Social_Platform_Migration\Common\bin\Debug\Microsoft.SharePoint.Client.Runtime.dll
+D:\Social_Platform_Migration\Common\obj\Debug\Common.dll
+D:\Social_Platform_Migration\Common\obj\Debug\Common.pdb
+D:\Social_Platform_Migration\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache

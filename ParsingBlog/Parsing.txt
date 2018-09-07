@@ -1,0 +1,440 @@
+﻿--DELETE WELCOME BLOG
+DELETE FROM BLOGDETAILS where typeOfContent='Topic' and TITLE ='Welcome to your Blog!'
+--DELETE WELCOME BLOG
+--Discover Reliance
+update BLOGDETAILS set keyArea='Discover Reliance' , contentType='Knowledge Sharing' where typeofcontent='topic' 
+and SiteCollection='Discover Reliance'
+and Subsite ='Theme-Month'
+and (keyArea is null or contentType is null)
+
+update BLOGDETAILS set keyArea='Step Up Programmes' , contentType='Discussion Forum' where typeofcontent='topic' 
+and SiteCollection='Discover Reliance'
+and Subsite ='Leadership Expectations'
+and (keyArea is null or contentType is null)
+
+update BLOGDETAILS set keyArea='Discover Reliance' , contentType='Discussion Forum' where typeofcontent='topic' 
+and SiteCollection='Discover Reliance'
+and Subsite ='NH-Clubs'
+and (keyArea is null or contentType is null)
+
+update BLOGDETAILS set keyArea='Management Trainees' , contentType='Knowledge Sharing' where typeofcontent='topic' 
+and SiteCollection='Discover Reliance'
+and Subsite ='MT'
+and (keyArea is null or contentType is null)
+--Discover Reliance
+
+--FCNA
+update BLOGDETAILS set keyArea='General' , contentType='Knowledge Sharing' where typeofcontent='topic' 
+and SiteCollection='FC&A'
+and Subsite ='Academy Newsletter'
+and (keyArea is null or contentType is null)
+
+UPDATE BLOGDETAILS set keyArea='mycorner' , contentType='Knowledge Sharing' 
+where typeOfContent='Topic' and (keyArea is null or contentType is null) and categories in(
+ 'Ms Excel','Purchase','Science and Technology','Science and Technology;Social',
+ 'Short Stories','Short Stories;Social','Social','Social;Accounts','Social;Finance;Accounts',
+'Social;Science and Technology','Social;Short Stories','History')
+
+UPDATE BLOGDETAILS set keyArea='Finance & Treasury' , contentType='Knowledge Sharing' 
+where typeOfContent='Topic' and (keyArea is null or contentType is null) and categories in('Finance')
+
+UPDATE BLOGDETAILS set keyArea='Accounting' , contentType='Knowledge Sharing' 
+where typeOfContent='Topic' and (keyArea is null or contentType is null) and categories in('Accounts')
+
+update BLOGDETAILS set keyArea='Corporate Secretarial & Compliances' , contentType='Knowledge Sharing' where typeofcontent='topic' 
+and SiteCollection='FC&A'
+and Subsite ='News'
+and (keyArea is null or contentType is null)
+
+update BLOGDETAILS set keyArea='General' , contentType='Best Practices' where typeofcontent='topic' 
+and SiteCollection='FC&A'
+and Subsite ='XPrO Chats'
+and (keyArea is null or contentType is null)
+
+update BLOGDETAILS set keyArea='Accounting' , contentType='Knowledge Sharing' where typeofcontent='topic' 
+and SiteCollection='FC&A'
+and Subsite ='Ind-AS 20:20'
+and (keyArea is null or contentType is null)
+
+update BLOGDETAILS set keyArea='General' , contentType='Knowledge Sharing' where typeofcontent='topic' 
+and SiteCollection='FC&A'
+and Subsite ='About FC&A Academy'
+and (keyArea is null or contentType is null)
+
+update BLOGDETAILS set keyArea='Indirect Taxes' , contentType='Discussion Forum' where typeofcontent='topic' 
+and SiteCollection='FC&A'
+and Subsite ='GST'
+and (keyArea is null or contentType is null)
+
+update BLOGDETAILS set keyArea='General' , contentType='Discussion Forum' where typeofcontent='topic' 
+and SiteCollection='Deep Dive - FC&A'
+and Subsite ='Financial Management System'
+and (keyArea is null or contentType is null)
+
+update BLOGDETAILS set keyArea='Direct Taxes' , contentType='Discussion Forum' where typeofcontent='topic' 
+and SiteCollection='Deep Dive - FC&A'
+and Subsite ='International Taxation'
+and (keyArea is null or contentType is null)
+
+update BLOGDETAILS set keyArea='General' , contentType='Discussion Forum' where typeofcontent='topic' 
+and SiteCollection='Deep Dive - FC&A'
+and Subsite='Budget Analysis & Impact 2015' --and categories like'HR Strategy%'
+and (keyArea is null or contentType is null)
+
+update BLOGDETAILS set keyArea='Finance & Treasury' , contentType='Knowledge Sharing' where typeofcontent='topic' 
+and SiteCollection='FC&A'
+and Subsite ='FC&A Finance'
+and (keyArea is null or contentType is null)
+
+update BLOGDETAILS set keyArea='Accounting' , contentType='Knowledge Sharing' where typeofcontent='topic' 
+and SiteCollection='FC&A'
+and Subsite ='FCnA Accounting'
+and (keyArea is null or contentType is null)
+--FCNA
+--HR Social
+update BLOGDETAILS set keyArea='Compensation & Benefits' , contentType='Knowledge Sharing' where typeofcontent='topic' 
+and SiteCollection='HR Social'
+and Subsite='KeyBlogs' and categories like'Compensation and Benefits%'
+and (keyArea is null or contentType is null)
+
+update BLOGDETAILS set keyArea='HR Strategy' , contentType='Knowledge Sharing' where typeofcontent='topic' 
+and SiteCollection='HR Social'
+and Subsite='KeyBlogs' and categories like'HR Strategy%'
+and (keyArea is null or contentType is null)
+
+update BLOGDETAILS set keyArea='Learning & Development' , contentType='Knowledge Sharing' where typeofcontent='topic' 
+and SiteCollection='HR Social'
+and Subsite='KeyBlogs' and categories like'Learning and Development%'
+and (keyArea is null or contentType is null)
+
+update BLOGDETAILS set keyArea='Performance and Rewards' , contentType='Knowledge Sharing' where typeofcontent='topic' 
+and SiteCollection='HR Social'
+and Subsite='KeyBlogs' and categories like'Performance and Rewards%'
+and (keyArea is null or contentType is null)
+
+update BLOGDETAILS set keyArea='Employee Engagement & Communication' , contentType='Knowledge Sharing' where typeofcontent='topic' 
+and SiteCollection='HR Social'
+and Subsite='KeyBlogs' and categories like'Employee Engagement and Communication%'
+and (keyArea is null or contentType is null)
+
+update BLOGDETAILS set keyArea='Talent Acquisition' , contentType='Knowledge Sharing' where typeofcontent='topic' 
+and SiteCollection='HR Social'
+and Subsite='KeyBlogs' and categories like'Talent Acquisition%'
+and (keyArea is null or contentType is null)
+
+update BLOGDETAILS set keyArea='Talent Management' , contentType='Knowledge Sharing' where typeofcontent='topic' 
+and SiteCollection='HR Social'
+and Subsite='KeyBlogs' and categories like'Talent Management%'
+and (keyArea is null or contentType is null)
+
+update BLOGDETAILS set keyArea='HR Operations' , contentType='Knowledge Sharing' where typeofcontent='topic' 
+and SiteCollection='HR Social'
+and Subsite='KeyBlogs' and categories like'HR Operations%'
+and (keyArea is null or contentType is null)
+
+update BLOGDETAILS set keyArea='Employee & Industrial Relations' , contentType='Knowledge Sharing' where typeofcontent='topic' 
+and SiteCollection='HR Social'
+and Subsite='KeyBlogs' and categories like'Employee and Industrial Relations%'
+and (keyArea is null or contentType is null)
+
+update BLOGDETAILS set keyArea='Diversity & Inclusion' , contentType='Knowledge Sharing' where typeofcontent='topic' 
+and SiteCollection='HR Social'
+and Subsite='KeyBlogs' and categories like'Diversity and Affirmative Actions%'
+and (keyArea is null or contentType is null)
+update BLOGDETAILS set keyArea='Operations, Solutions & Analytics' , contentType='Knowledge Sharing' where typeofcontent='topic' 
+and SiteCollection='HR Social'
+and Subsite='KeyBlogs' and categories like'Operations, Solutions and Analytics%'
+and (keyArea is null or contentType is null)
+
+update BLOGDETAILS set keyArea='Learning & Development' , contentType='Discussion Forum' where typeofcontent='topic' 
+and SiteCollection='HR Social'
+and Subsite='DiscussionForum' and categories like'Learning and Development%'
+and (keyArea is null or contentType is null)
+
+update BLOGDETAILS set keyArea='Talent Acquisition' , contentType='Discussion Forum' where typeofcontent='topic' 
+and SiteCollection='HR Social'
+and Subsite='DiscussionForum' and categories like'Talent Acquisition%'
+and (keyArea is null or contentType is null)
+
+update BLOGDETAILS set keyArea='HR Strategy' , contentType='Discussion Forum' where typeofcontent='topic' 
+and SiteCollection='HR Social'
+and Subsite='DiscussionForum' and categories like'HR Strategy%'
+and (keyArea is null or contentType is null)
+
+update BLOGDETAILS set keyArea='Performance and Rewards' , contentType='Discussion Forum' where typeofcontent='topic' 
+and SiteCollection='HR Social'
+and Subsite='DiscussionForum' and categories like'Performance and Rewards%'
+and (keyArea is null or contentType is null)
+
+update BLOGDETAILS set keyArea='Employee & Industrial Relations' , contentType='Discussion Forum' where typeofcontent='topic' 
+and SiteCollection='HR Social'
+and Subsite='DiscussionForum' and categories like'Employee and Industrial Relations%'
+and (keyArea is null or contentType is null)
+update BLOGDETAILS set keyArea='Diversity & Inclusion' , contentType='Discussion Forum' where typeofcontent='topic' 
+and SiteCollection='HR Social'
+and Subsite='DiscussionForum' and categories like'Diversity and Affirmative Actions%'
+and (keyArea is null or contentType is null)
+
+update BLOGDETAILS set keyArea='Compensation & Benefits' , contentType='Discussion Forum' where typeofcontent='topic' 
+and SiteCollection='HR Social'
+and Subsite='DiscussionForum' and categories like'Compensation and Benefits%'
+and (keyArea is null or contentType is null)
+
+update BLOGDETAILS set keyArea='Labour Laws' , contentType='Discussion Forum' where typeofcontent='topic' 
+and SiteCollection='HR Social'
+and Subsite='DiscussionForum' and categories like'Application of Labour Laws%'
+and (keyArea is null or contentType is null)
+update BLOGDETAILS set keyArea='General' , contentType='Discussion Forum' where typeofcontent='topic' 
+and SiteCollection='HR Social'
+and Subsite='DiscussionForum' and categories like'General%'
+and (keyArea is null or contentType is null)
+update BLOGDETAILS set keyArea='mycorner' , contentType='Knowledge Sharing' where typeofcontent='topic' 
+and SiteCollection='HR Social'
+and Subsite='blogs' --and categories like'HR Strategy%'
+and (keyArea is null or contentType is null)
+--HR Social
+
+--R&D - Social Community
+update b set b.keyArea=s.[Key Areas in Learnet], b.contentType=s.[Content Type]
+from BLOGDETAILS  b
+left join RILSocialPlatformMigration.[dbo].[R&DSocial] s on b.BlogID = s.F15
+where typeofcontent='topic' 
+and SiteCollection='R&D - Social Community' and (keyArea is null or contentType is null)
+and s.F15 is not null
+
+update b set b.keyArea = c.keyArea, b.contentType=c.contentType
+from BLOGDETAILS b inner join 
+RILSocialPlatformMigration_05012018.dbo.blogdetails c on b.BlogID=c.BlogID  
+and b.SiteCollection=c.SiteCollection and b.Subsite=c.Subsite --and b.keyArea =c.keyArea --and b.contentType=c.contentType
+where b.typeofcontent='topic' and b.SiteCollection='R&D - Social Community'
+and (b.keyArea is null and b.contentType is null)
+
+update b set b.keyArea = c.keyArea
+from BLOGDETAILS b inner join 
+RILSocialPlatformMigration_05012018.dbo.blogdetails c on b.BlogID=c.BlogID  
+and b.SiteCollection=c.SiteCollection and b.Subsite=c.Subsite --and b.keyArea =c.keyArea --and b.contentType=c.contentType
+where b.typeofcontent='topic' and b.SiteCollection='R&D - Social Community'
+and (b.keyArea is null )
+
+update b set b.contentType = 'Knowledge Sharing'
+from BLOGDETAILS b inner join 
+RILSocialPlatformMigration_05012018.dbo.blogdetails c on b.BlogID=c.BlogID  
+and b.SiteCollection=c.SiteCollection and b.Subsite=c.Subsite and b.keyArea =c.keyArea --and b.contentType=c.contentType
+where b.typeofcontent='topic' and b.SiteCollection='R&D - Social Community'
+and (b.contentType is null)
+
+--R&D - Social Community
+
+--P&C Academy
+update BLOGDETAILS set keyArea='myCorner', contentType='Knowledge Sharing' where typeofcontent='topic' 
+and SiteCollection='P&C Academy'
+and Subsite='My Corner' --and categories like'HR Strategy%'
+and (keyArea is null or contentType is null)
+
+update b set b.keyArea=c.keyArea , b.contentType=c.contentType
+from BLOGDETAILS b 
+inner join RILSocialPlatformMigration.[dbo].[PNC] c 
+on b.Subsite=c.Subsite and b.BlogID=c.BlogID
+where typeofcontent='topic' 
+and SiteCollection='P&C Academy'
+and (b.keyArea is null or b.contentType is null)
+
+--P&C Academy
+
+--Tech Talk
+
+update BLOGDETAILS set keyArea='IT Strategy, Architecture and Governance' , contentType='Knowledge Sharing'
+ where typeofcontent='topic' 
+and SiteCollection='Tech Talk'
+and Subsite='Tech Blog' --and categories like'HR Strategy%'
+and (keyArea is null or contentType is null)
+
+update BLOGDETAILS set keyArea='IT Project Management' , contentType='Discussion Forum'
+ where typeofcontent='topic' and SiteCollection='Tech Talk' and Subsite='Tech Forum' --and categories like'HR Strategy%'
+and (keyArea is null or contentType is null) and BlogID=12
+update BLOGDETAILS set keyArea='Mobility' , contentType='Discussion Forum'
+ where typeofcontent='topic' and SiteCollection='Tech Talk' and Subsite='Tech Forum' --and categories like'HR Strategy%'
+and (keyArea is null or contentType is null) and BlogID=6
+update BLOGDETAILS set keyArea='Mobility' , contentType='Discussion Forum'
+ where typeofcontent='topic' and SiteCollection='Tech Talk' and Subsite='Tech Forum' --and categories like'HR Strategy%'
+and (keyArea is null or contentType is null) and BlogID=35
+update BLOGDETAILS set keyArea='ERP - SAP Functional' , contentType='Discussion Forum'
+ where typeofcontent='topic' and SiteCollection='Tech Talk' and Subsite='Tech Forum' --and categories like'HR Strategy%'
+and (keyArea is null or contentType is null) and BlogID=9
+update BLOGDETAILS set keyArea='Software Development and Web Design' , contentType='Discussion Forum'
+ where typeofcontent='topic' and SiteCollection='Tech Talk' and Subsite='Tech Forum' --and categories like'HR Strategy%'
+and (keyArea is null or contentType is null) and BlogID=13
+update BLOGDETAILS set keyArea='Emerging Technologies' , contentType='Discussion Forum'
+ where typeofcontent='topic' and SiteCollection='Tech Talk' and Subsite='Tech Forum' --and categories like'HR Strategy%'
+and (keyArea is null or contentType is null) and BlogID=5
+--Tech Talk
+
+--Learnet
+update b set b.contentType = c.ct
+from Blogdetails b inner join 
+(select Created, Project ,[subject], Author, Keyarea , ct ,'T'  'cat'  from RILSocialPlatformMigration_05012018.[dbo].[ENPText] where [Status] ='Approved'
+union
+select Created, Project ,[subject], Author, Keyarea, ct,'V' 'cat'   from RILSocialPlatformMigration_05012018.[dbo].[ENPVideo] where [Status] ='Approved'
+union
+select Created, Project ,[subject], Author, Keyarea , ct ,'T'  'cat'  from  RILSocialPlatformMigration_05012018.[dbo].[FCNAText] where [Status] ='Approved'
+union
+select Created, Project ,[subject], Author, Keyarea, ct,'V' 'cat' from  RILSocialPlatformMigration_05012018.[dbo].[FCNAVideo] where [Status] ='Approved'
+union
+select Created, Project ,[subject], Author, Keyarea , ct ,'T'  'cat' from  RILSocialPlatformMigration_05012018.[dbo].[GRCAText] where [Status] ='Approved'
+union
+select Created, Project ,[subject], Author, Keyarea, ct,'V' 'cat' from  RILSocialPlatformMigration_05012018.[dbo].[GRCAVideo] where [Status] ='Approved'
+union
+select Created, Project ,[subject], Author, Keyarea , ct ,'T'  'cat' from RILSocialPlatformMigration_05012018.[dbo].[HRText] where [Status] ='Approved'
+union
+select Created, Project ,[subject], Author, Keyarea , ct ,'V' 'cat' from RILSocialPlatformMigration_05012018.[dbo].[HRVideo] where [Status] ='Approved'
+union
+select Created, Project ,[subject], Author, Keyarea , ct ,'T'  'cat' from RILSocialPlatformMigration_05012018.[dbo].[ITText] where [Status] ='Approved'
+union
+select Created, Project ,[subject], Author, Keyarea, ct,'V' 'cat' from RILSocialPlatformMigration_05012018.[dbo].[ITVideo] where [Status] ='Approved'
+union
+select Created, Project ,[subject], Author, Keyarea , ct ,'T'  'cat' from RILSocialPlatformMigration_05012018.[dbo].[LAText] where [Status] ='Approved'
+union
+select Created, Project ,[subject], Author, Keyarea, ct,'V' 'cat' from RILSocialPlatformMigration_05012018.[dbo].[LAVideo] where [Status] ='Approved'
+union
+select Created, Project ,[subject], Author, Keyarea , ct ,'T'  'cat' from RILSocialPlatformMigration_05012018.[dbo].[MFGText] where [Status] ='Approved'
+union
+select Created, Project ,[subject], Author, Keyarea, ct,'V' 'cat' from RILSocialPlatformMigration_05012018.[dbo].[MFGVideo] where [Status] ='Approved'
+union
+select Created, Project ,[subject], Author, Keyarea , ct ,'T'  'cat' from RILSocialPlatformMigration_05012018.[dbo].[PETText] where [Status] ='Approved'
+union
+select Created, Project ,[subject], Author, Keyarea, ct,'V' 'cat' from RILSocialPlatformMigration_05012018.[dbo].[PETVideo] where [Status] ='Approved'
+union
+select Created, Project ,[subject], Author, Keyarea , ct ,'T'  'cat' from RILSocialPlatformMigration_05012018.[dbo].[PNCText] where [Status] ='Approved'
+union
+select Created, Project ,[subject], Author, Keyarea, ct,'V' 'cat' from RILSocialPlatformMigration_05012018.[dbo].[PETVideo] where [Status] ='Approved'
+union
+select Created, Project ,[subject], Author, Keyarea , ct ,'T'  'cat' from RILSocialPlatformMigration_05012018.[dbo].[PNCText] where [Status] ='Approved'
+union
+select Created, Project ,[subject], Author, Keyarea, ct,'V' 'cat' from RILSocialPlatformMigration_05012018.[dbo].[PNCVideo] where [Status] ='Approved'
+union 
+select  Created, Project ,[subject], CreatedBy 'Author', [Key Area ( as per new list)] 'Keyarea' , Contenttype 'ct' ,'T'  'cat' from RILSocialPlatformMigration_05012018.[dbo].[RETAILText] where [Status] ='Approved'
+union 
+select Created, Project ,[subject],CreatedBy 'Author', [Key Area ( as per new list)] 'Keyarea' , Contenttype 'ct','V' 'cat' from RILSocialPlatformMigration_05012018.[dbo].[RETAILVideo] where [Status] ='Approved'
+union 
+select Created, Project ,[subject], Author, Keyarea , ct ,'T'  'cat' from RILSocialPlatformMigration_05012018.[dbo].[RNDText] where [Status] ='Approved'
+union 
+select Created, Project ,[subject], Author, Keyarea, ct,'V' 'cat' from RILSocialPlatformMigration_05012018.[dbo].[RNDVideo] where [Status] ='Approved'
+union 
+select Created, Project ,[subject], Author, Keyarea , ct ,'T'  'cat' from RILSocialPlatformMigration_05012018.[dbo].[RNMText] where [Status] ='Approved'
+union 
+select Created, Project ,[subject], Author, Keyarea, ct,'V' 'cat' from RILSocialPlatformMigration_05012018.[dbo].[RNMVideo] where [Status] ='Approved'
+union
+select Created, Project ,[subject], Author, Keyarea , ct ,'T'  'cat' from RILSocialPlatformMigration_05012018.[dbo].[RPMGText] where [Status] ='Approved'
+union
+select Created, Project ,[subject], Author, Keyarea, ct,'V' 'cat' from RILSocialPlatformMigration_05012018.[dbo].[RPMGVideo] where [Status] ='Approved'
+union
+select Created, Project ,[subject], Author, Keyarea , ct ,'T'  'cat' from RILSocialPlatformMigration_05012018.[dbo].[RSRMAText]  where [Status] ='Approved'
+union
+select Created, Project ,[subject], Author, Keyarea , ct ,'V' 'cat' from RILSocialPlatformMigration_05012018.[dbo].[RSRMAVideo]  where [Status] ='Approved')c
+ on b.title=c.[Subject] and  b.project=c.Project and b.CategoryType= c.cat and b.keyArea=c.KeyArea --and b.contentType=c.ct
+  where typeofcontent='topic'  and Subsite='Learnet'
+
+  update  BLOGDETAILS set Channel=keyArea  where typeofcontent='topic' and Subsite='Learnet' and project ='retail'
+  update b set b.contentType = c.ct , b.keyArea=c.KeyArea
+from Blogdetails b inner join 
+(select Created, Project ,[subject], Author, Keyarea , ct ,'T'  'cat'  from RILSocialPlatformMigration_05012018.[dbo].[ENPText] where [Status] ='Approved'
+union
+select Created, Project ,[subject], Author, Keyarea, ct,'V' 'cat'   from RILSocialPlatformMigration_05012018.[dbo].[ENPVideo] where [Status] ='Approved'
+union
+select Created, Project ,[subject], Author, Keyarea , ct ,'T'  'cat'  from  RILSocialPlatformMigration_05012018.[dbo].[FCNAText] where [Status] ='Approved'
+union
+select Created, Project ,[subject], Author, Keyarea, ct,'V' 'cat' from  RILSocialPlatformMigration_05012018.[dbo].[FCNAVideo] where [Status] ='Approved'
+union
+select Created, Project ,[subject], Author, Keyarea , ct ,'T'  'cat' from  RILSocialPlatformMigration_05012018.[dbo].[GRCAText] where [Status] ='Approved'
+union
+select Created, Project ,[subject], Author, Keyarea, ct,'V' 'cat' from  RILSocialPlatformMigration_05012018.[dbo].[GRCAVideo] where [Status] ='Approved'
+union
+select Created, Project ,[subject], Author, Keyarea , ct ,'T'  'cat' from RILSocialPlatformMigration_05012018.[dbo].[HRText] where [Status] ='Approved'
+union
+select Created, Project ,[subject], Author, Keyarea , ct ,'V' 'cat' from RILSocialPlatformMigration_05012018.[dbo].[HRVideo] where [Status] ='Approved'
+union
+select Created, Project ,[subject], Author, Keyarea , ct ,'T'  'cat' from RILSocialPlatformMigration_05012018.[dbo].[ITText] where [Status] ='Approved'
+union
+select Created, Project ,[subject], Author, Keyarea, ct,'V' 'cat' from RILSocialPlatformMigration_05012018.[dbo].[ITVideo] where [Status] ='Approved'
+union
+select Created, Project ,[subject], Author, Keyarea , ct ,'T'  'cat' from RILSocialPlatformMigration_05012018.[dbo].[LAText] where [Status] ='Approved'
+union
+select Created, Project ,[subject], Author, Keyarea, ct,'V' 'cat' from RILSocialPlatformMigration_05012018.[dbo].[LAVideo] where [Status] ='Approved'
+union
+select Created, Project ,[subject], Author, Keyarea , ct ,'T'  'cat' from RILSocialPlatformMigration_05012018.[dbo].[MFGText] where [Status] ='Approved'
+union
+select Created, Project ,[subject], Author, Keyarea, ct,'V' 'cat' from RILSocialPlatformMigration_05012018.[dbo].[MFGVideo] where [Status] ='Approved'
+union
+select Created, Project ,[subject], Author, Keyarea , ct ,'T'  'cat' from RILSocialPlatformMigration_05012018.[dbo].[PETText] where [Status] ='Approved'
+union
+select Created, Project ,[subject], Author, Keyarea, ct,'V' 'cat' from RILSocialPlatformMigration_05012018.[dbo].[PETVideo] where [Status] ='Approved'
+union
+select Created, Project ,[subject], Author, Keyarea , ct ,'T'  'cat' from RILSocialPlatformMigration_05012018.[dbo].[PNCText] where [Status] ='Approved'
+union
+select Created, Project ,[subject], Author, Keyarea, ct,'V' 'cat' from RILSocialPlatformMigration_05012018.[dbo].[PETVideo] where [Status] ='Approved'
+union
+select Created, Project ,[subject], Author, Keyarea , ct ,'T'  'cat' from RILSocialPlatformMigration_05012018.[dbo].[PNCText] where [Status] ='Approved'
+union
+select Created, Project ,[subject], Author, Keyarea, ct,'V' 'cat' from RILSocialPlatformMigration_05012018.[dbo].[PNCVideo] where [Status] ='Approved'
+union 
+select  Created, Project ,[subject], CreatedBy 'Author', [Key Area ( as per new list)] 'Keyarea' , Contenttype 'ct' ,'T'  'cat' from RILSocialPlatformMigration_05012018.[dbo].[RETAILText] where [Status] ='Approved'
+union 
+select Created, Project ,[subject],CreatedBy 'Author', [Key Area ( as per new list)] 'Keyarea' , Contenttype 'ct','V' 'cat' from RILSocialPlatformMigration_05012018.[dbo].[RETAILVideo] where [Status] ='Approved'
+union 
+select Created, Project ,[subject], Author, Keyarea , ct ,'T'  'cat' from RILSocialPlatformMigration_05012018.[dbo].[RNDText] where [Status] ='Approved'
+union 
+select Created, Project ,[subject], Author, Keyarea, ct,'V' 'cat' from RILSocialPlatformMigration_05012018.[dbo].[RNDVideo] where [Status] ='Approved'
+union 
+select Created, Project ,[subject], Author, Keyarea , ct ,'T'  'cat' from RILSocialPlatformMigration_05012018.[dbo].[RNMText] where [Status] ='Approved'
+union 
+select Created, Project ,[subject], Author, Keyarea, ct,'V' 'cat' from RILSocialPlatformMigration_05012018.[dbo].[RNMVideo] where [Status] ='Approved'
+union
+select Created, Project ,[subject], Author, Keyarea , ct ,'T'  'cat' from RILSocialPlatformMigration_05012018.[dbo].[RPMGText] where [Status] ='Approved'
+union
+select Created, Project ,[subject], Author, Keyarea, ct,'V' 'cat' from RILSocialPlatformMigration_05012018.[dbo].[RPMGVideo] where [Status] ='Approved'
+union
+select Created, Project ,[subject], Author, Keyarea , ct ,'T'  'cat' from RILSocialPlatformMigration_05012018.[dbo].[RSRMAText]  where [Status] ='Approved'
+union
+select Created, Project ,[subject], Author, Keyarea , ct ,'V' 'cat' from RILSocialPlatformMigration_05012018.[dbo].[RSRMAVideo]  where [Status] ='Approved')c
+ on b.title=c.[Subject] and  b.project=c.Project and b.CategoryType= c.cat and b.keyArea !=c.KeyArea --and b.contentType=c.ct
+  where typeofcontent='topic'  and Subsite='Learnet'
+--Learnet
+
+-- RPMG RSRMA for mapping content type not required
+select b.BlogID,b.Segment_Channel_ID, b.[Type],--b.Created,s.Created, 
+b.BlogTitle, kc.Title, ct.Title, b.ContenTypeId, s.catid , s.Subject,s.KeyArea,s.ct,s.Project ,sc.Channel
+from BlogDetails  b 
+inner join Segment_Channel sc on b.Segment_Channel_ID = sc.ID
+inner join KeyArea_Channel kc on b.KeyArea=kc.ID and b.Segment_Channel_ID=kc.Segment_Channel_Id
+inner join ContentType ct on b.ContenTypeId=ct.ID
+left join
+(select Created, Status , Author, Project,KeyArea, case ct 
+when 'Discussion Forum' then 19  when 'Best Practices' then 31 when 'Knowledge Sharing' then 20 when 'Rewards & Recognitions' then 11 
+when 'Discussion Forum' then 19 end 'catid' ,ct
+, Subject,'T' 'cat' from RILSocialPlatformMigration_05012018.dbo.RSRMAText
+union
+select Created, Status , Author, Project,KeyArea, case ct 
+when 'Discussion Forum' then 19  when 'Best Practices' then 31 when 'Knowledge Sharing' then 20 when 'Rewards & Recognitions' then 11 
+when 'Discussion Forum' then 19 end 'catid' ,ct, Subject,'V' 'cat' from RILSocialPlatformMigration_05012018.dbo.RSRMAVideo
+union
+select Created, Status , Author, Project,KeyArea, case ct 
+when 'Discussion Forum' then 19  when 'Best Practices' then 31 when 'Knowledge Sharing' then 20 when 'Rewards & Recognitions' then 11 
+when 'Discussion Forum' then 19 end 'catid' ,ct, Subject,'T' 'cat' from RILSocialPlatformMigration_05012018.dbo.RPMGText
+union
+select Created, Status , Author, Project,KeyArea, case ct 
+when 'Discussion Forum' then 19  when 'Best Practices' then 31 when 'Knowledge Sharing' then 20 when 'Rewards & Recognitions' then 11 
+when 'Discussion Forum' then 19 end 'catid' ,ct, Subject,'V' 'cat'  from RILSocialPlatformMigration_05012018.dbo.RPMGVideo) s
+on b.BlogTitle = s.Subject and b.[Type] = s.cat-- and  cast(b.Created as date)=cast(s.Created as date)  and kc.Title=s.KeyArea 
+and sc.Channel= s.Project
+where sc.Segment='hydrocarbon' and sc.Channel in ('RSRMA','RPMG') and s.Subject is not null
+-- group by b.BlogID,b.Segment_Channel_ID, b.[Type], b.BlogTitle
+order by b.Segment_Channel_ID,b.BlogID
+
+-- RPMG RSRMA
+
+--Cleanup embed document --
+ select hasAttachement,mled.* from 
+ --update bd  set bd.hasAttachement=0
+  BLOGDETAILS bd inner join MigratedListItemEmbededDocument mled
+ on bd.SiteCollection=mled.SiteCollection and bd.Subsite=mled.SubSite and bd.BlogID=mled.DocumentParentRowID
+ where downloadable=1 and downloaded=0

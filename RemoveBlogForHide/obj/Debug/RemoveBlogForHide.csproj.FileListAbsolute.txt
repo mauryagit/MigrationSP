@@ -1,0 +1,10 @@
+D:\Social_Platform_Migration\RemoveBlogForHide\bin\Debug\RemoveBlogForHide.exe.config
+D:\Social_Platform_Migration\RemoveBlogForHide\bin\Debug\RemoveBlogForHide.exe
+D:\Social_Platform_Migration\RemoveBlogForHide\bin\Debug\RemoveBlogForHide.pdb
+D:\Social_Platform_Migration\RemoveBlogForHide\bin\Debug\Common.dll
+D:\Social_Platform_Migration\RemoveBlogForHide\bin\Debug\Microsoft.SharePoint.Client.dll
+D:\Social_Platform_Migration\RemoveBlogForHide\bin\Debug\Microsoft.SharePoint.Client.Runtime.dll
+D:\Social_Platform_Migration\RemoveBlogForHide\bin\Debug\Common.pdb
+D:\Social_Platform_Migration\RemoveBlogForHide\obj\Debug\RemoveBlogForHide.csprojResolveAssemblyReference.cache
+D:\Social_Platform_Migration\RemoveBlogForHide\obj\Debug\RemoveBlogForHide.exe
+D:\Social_Platform_Migration\RemoveBlogForHide\obj\Debug\RemoveBlogForHide.pdb

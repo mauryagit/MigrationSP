@@ -1,0 +1,10 @@
+D:\Social_Platform_Migration\MyCorner\bin\Debug\MyCorner.exe.config
+D:\Social_Platform_Migration\MyCorner\bin\Debug\MyCorner.exe
+D:\Social_Platform_Migration\MyCorner\bin\Debug\MyCorner.pdb
+D:\Social_Platform_Migration\MyCorner\bin\Debug\Common.dll
+D:\Social_Platform_Migration\MyCorner\bin\Debug\Microsoft.SharePoint.Client.dll
+D:\Social_Platform_Migration\MyCorner\bin\Debug\Microsoft.SharePoint.Client.Runtime.dll
+D:\Social_Platform_Migration\MyCorner\bin\Debug\Common.pdb
+D:\Social_Platform_Migration\MyCorner\obj\Debug\MyCorner.exe
+D:\Social_Platform_Migration\MyCorner\obj\Debug\MyCorner.pdb
+D:\Social_Platform_Migration\MyCorner\obj\Debug\MyCorner.csprojResolveAssemblyReference.cache

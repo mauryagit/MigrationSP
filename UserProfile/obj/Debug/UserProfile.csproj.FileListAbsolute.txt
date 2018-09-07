@@ -1,0 +1,11 @@
+D:\Social_Platform_Migration\UserProfile\bin\Debug\UserProfile.exe.config
+D:\Social_Platform_Migration\UserProfile\bin\Debug\UserProfile.exe
+D:\Social_Platform_Migration\UserProfile\bin\Debug\UserProfile.pdb
+D:\Social_Platform_Migration\UserProfile\bin\Debug\Common.dll
+D:\Social_Platform_Migration\UserProfile\bin\Debug\Microsoft.SharePoint.Client.dll
+D:\Social_Platform_Migration\UserProfile\bin\Debug\Microsoft.SharePoint.Client.Runtime.dll
+D:\Social_Platform_Migration\UserProfile\bin\Debug\Microsoft.SharePoint.Client.UserProfiles.dll
+D:\Social_Platform_Migration\UserProfile\bin\Debug\Common.pdb
+D:\Social_Platform_Migration\UserProfile\obj\Debug\UserProfile.csprojResolveAssemblyReference.cache
+D:\Social_Platform_Migration\UserProfile\obj\Debug\UserProfile.exe
+D:\Social_Platform_Migration\UserProfile\obj\Debug\UserProfile.pdb

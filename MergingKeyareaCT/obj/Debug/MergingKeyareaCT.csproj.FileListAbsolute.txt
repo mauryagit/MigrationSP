@@ -1,0 +1,10 @@
+D:\Social_Platform_Migration\MergingKeyareaCT\bin\Debug\MergingKeyareaCT.exe.config
+D:\Social_Platform_Migration\MergingKeyareaCT\bin\Debug\MergingKeyareaCT.exe
+D:\Social_Platform_Migration\MergingKeyareaCT\bin\Debug\MergingKeyareaCT.pdb
+D:\Social_Platform_Migration\MergingKeyareaCT\bin\Debug\Common.dll
+D:\Social_Platform_Migration\MergingKeyareaCT\bin\Debug\Microsoft.SharePoint.Client.dll
+D:\Social_Platform_Migration\MergingKeyareaCT\bin\Debug\Microsoft.SharePoint.Client.Runtime.dll
+D:\Social_Platform_Migration\MergingKeyareaCT\bin\Debug\Common.pdb
+D:\Social_Platform_Migration\MergingKeyareaCT\obj\Debug\MergingKeyareaCT.exe
+D:\Social_Platform_Migration\MergingKeyareaCT\obj\Debug\MergingKeyareaCT.pdb
+D:\Social_Platform_Migration\MergingKeyareaCT\obj\Debug\MergingKeyareaCT.csprojResolveAssemblyReference.cache

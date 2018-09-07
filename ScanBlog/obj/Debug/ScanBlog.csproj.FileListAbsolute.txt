@@ -1,0 +1,10 @@
+D:\Social_Platform_Migration\ScanBlog\bin\Debug\ScanBlog.exe.config
+D:\Social_Platform_Migration\ScanBlog\bin\Debug\ScanBlog.exe
+D:\Social_Platform_Migration\ScanBlog\bin\Debug\ScanBlog.pdb
+D:\Social_Platform_Migration\ScanBlog\bin\Debug\Common.dll
+D:\Social_Platform_Migration\ScanBlog\bin\Debug\Microsoft.SharePoint.Client.dll
+D:\Social_Platform_Migration\ScanBlog\bin\Debug\Microsoft.SharePoint.Client.Runtime.dll
+D:\Social_Platform_Migration\ScanBlog\bin\Debug\Common.pdb
+D:\Social_Platform_Migration\ScanBlog\obj\Debug\ScanBlog.csprojResolveAssemblyReference.cache
+D:\Social_Platform_Migration\ScanBlog\obj\Debug\ScanBlog.exe
+D:\Social_Platform_Migration\ScanBlog\obj\Debug\ScanBlog.pdb

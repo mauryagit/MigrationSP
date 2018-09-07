@@ -1,0 +1,10 @@
+D:\Social_Platform_Migration\MergingActivity\bin\Debug\MergingActivity.exe.config
+D:\Social_Platform_Migration\MergingActivity\bin\Debug\MergingActivity.exe
+D:\Social_Platform_Migration\MergingActivity\bin\Debug\MergingActivity.pdb
+D:\Social_Platform_Migration\MergingActivity\bin\Debug\Common.dll
+D:\Social_Platform_Migration\MergingActivity\bin\Debug\Microsoft.SharePoint.Client.dll
+D:\Social_Platform_Migration\MergingActivity\bin\Debug\Microsoft.SharePoint.Client.Runtime.dll
+D:\Social_Platform_Migration\MergingActivity\bin\Debug\Common.pdb
+D:\Social_Platform_Migration\MergingActivity\obj\Debug\MergingActivity.exe
+D:\Social_Platform_Migration\MergingActivity\obj\Debug\MergingActivity.pdb
+D:\Social_Platform_Migration\MergingActivity\obj\Debug\MergingActivity.csprojResolveAssemblyReference.cache
