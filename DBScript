@@ -1,0 +1,1053 @@
+USE [Database]
+GO
+/****** Object:  UserDefinedTableType [dbo].[Blogtbl]    Script Date: 9/7/2018 5:05:49 PM ******/
+CREATE TYPE [dbo].[Blogtbl] AS TABLE(
+	[SiteCollection] [nvarchar](50) NULL,
+	[Subsite] [nvarchar](50) NOT NULL,
+	[BlogID] [int] NOT NULL,
+	[title] [nvarchar](250) NOT NULL,
+	[body] [nvarchar](max) NULL,
+	[likedBy] [nvarchar](max) NULL,
+	[categories] [nvarchar](max) NULL,
+	[keyArea] [nvarchar](max) NULL,
+	[contentType] [nvarchar](max) NULL,
+	[moderationStatus] [nvarchar](max) NULL,
+	[hasComment] [bit] NOT NULL,
+	[likeCount] [int] NOT NULL,
+	[author] [nvarchar](250) NOT NULL,
+	[editor] [nvarchar](250) NOT NULL,
+	[typeOfContent] [nvarchar](250) NULL,
+	[parentID] [int] NULL,
+	[hasAttachement] [bit] NOT NULL,
+	[created] [datetime] NOT NULL,
+	[modified] [datetime] NOT NULL,
+	[published] [datetime2](7) NOT NULL,
+	[CategoryType] [nvarchar](250) NOT NULL,
+	[ThumnailPath] [nvarchar](max) NULL,
+	[project] [nvarchar](max) NULL,
+	[filepath] [nvarchar](max) NULL,
+	[Channel] [nvarchar](max) NULL
+)
+GO
+/****** Object:  UserDefinedFunction [dbo].[FnSplit]    Script Date: 9/7/2018 5:05:49 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE FUNCTION [dbo].[FnSplit]
+
+(
+
+@List nvarchar(2000),
+
+@SplitOn nvarchar(5)
+
+)  
+
+RETURNS @RtnValue table 
+
+(
+
+
+
+Id int identity(1,1),
+
+Value nvarchar(100)
+
+) 
+
+AS  
+
+BEGIN
+
+While (Charindex(@SplitOn,@List)>0)
+
+Begin 
+
+Insert Into @RtnValue (value)
+
+Select
+
+Value = ltrim(rtrim(Substring(@List,1,Charindex(@SplitOn,@List)-1))) 
+
+Set @List = Substring(@List,Charindex(@SplitOn,@List)+len(@SplitOn),len(@List))
+
+End 
+
+
+
+Insert Into @RtnValue (Value)
+
+Select Value = ltrim(rtrim(@List))
+
+Return
+
+END
+
+
+GO
+/****** Object:  Table [dbo].[BLOGDETAILS]    Script Date: 9/7/2018 5:05:49 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[BLOGDETAILS](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[SiteCollection] [nvarchar](50) NULL,
+	[Subsite] [nvarchar](50) NOT NULL,
+	[BlogID] [int] NOT NULL,
+	[title] [nvarchar](250) NOT NULL,
+	[body] [nvarchar](max) NULL,
+	[likedBy] [nvarchar](max) NULL,
+	[categories] [nvarchar](max) NULL,
+	[keyArea] [nvarchar](max) NULL,
+	[contentType] [nvarchar](max) NULL,
+	[moderationStatus] [nvarchar](max) NULL,
+	[hasComment] [bit] NOT NULL,
+	[likeCount] [int] NOT NULL,
+	[author] [nvarchar](250) NOT NULL,
+	[editor] [nvarchar](250) NOT NULL,
+	[typeOfContent] [nvarchar](250) NULL,
+	[parentID] [int] NULL,
+	[hasAttachement] [bit] NOT NULL,
+	[created] [datetime] NOT NULL,
+	[modified] [datetime] NOT NULL,
+	[published] [datetime2](7) NOT NULL,
+	[migrated] [nchar](3) NOT NULL,
+	[migrationComment] [nvarchar](max) NULL,
+	[CategoryType] [char](1) NULL,
+	[ThumnailPath] [nvarchar](max) NULL,
+	[project] [nvarchar](max) NULL,
+	[filepath] [nvarchar](max) NULL,
+	[learnettype] [int] NULL,
+	[Channel] [nvarchar](max) NULL,
+	[Issue] [char](3) NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[KeyArea_ContentType_Mapping]    Script Date: 9/7/2018 5:05:50 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[KeyArea_ContentType_Mapping](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[KeyArea] [nvarchar](max) NOT NULL,
+	[ContentType] [nvarchar](max) NULL,
+	[Old_Category] [nvarchar](max) NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[MigratedListData]    Script Date: 9/7/2018 5:05:50 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[MigratedListData](
+	[DataRowID] [int] IDENTITY(1,1) NOT NULL,
+	[ListDefinationRowID] [int] NOT NULL,
+	[VAL1] [nvarchar](max) NULL,
+	[VAL2] [nvarchar](max) NULL,
+	[VAL3] [nvarchar](max) NULL,
+	[VAL4] [nvarchar](max) NULL,
+	[VAL5] [nvarchar](max) NULL,
+	[VAL6] [nvarchar](max) NULL,
+	[VAL7] [nvarchar](max) NULL,
+	[VAL8] [nvarchar](max) NULL,
+	[VAL9] [nvarchar](max) NULL,
+	[VAL10] [nvarchar](max) NULL,
+	[VAL11] [nvarchar](max) NULL,
+	[VAL12] [nvarchar](max) NULL,
+	[VAL13] [nvarchar](max) NULL,
+	[VAL14] [nvarchar](max) NULL,
+	[VAL15] [nvarchar](max) NULL,
+	[VAL16] [nvarchar](max) NULL,
+	[VAL17] [nvarchar](max) NULL,
+	[VAL18] [nvarchar](max) NULL,
+	[VAL19] [nvarchar](max) NULL,
+	[VAL20] [nvarchar](max) NULL,
+	[VAL21] [nvarchar](max) NULL,
+	[VAL22] [nvarchar](max) NULL,
+	[VAL23] [nvarchar](max) NULL,
+	[VAL24] [nvarchar](max) NULL,
+	[VAL25] [nvarchar](max) NULL,
+	[VAL26] [nvarchar](max) NULL,
+	[VAL27] [nvarchar](max) NULL,
+	[VAL28] [nvarchar](max) NULL,
+	[VAL29] [nvarchar](max) NULL,
+	[VAL30] [nvarchar](max) NULL,
+	[VAL31] [nvarchar](max) NULL,
+	[VAL32] [nvarchar](max) NULL,
+	[VAL33] [nvarchar](max) NULL,
+	[VAL34] [nvarchar](max) NULL,
+	[VAL35] [nvarchar](max) NULL,
+	[VAL36] [nvarchar](max) NULL,
+	[VAL37] [nvarchar](max) NULL,
+	[VAL38] [nvarchar](max) NULL,
+	[VAL39] [nvarchar](max) NULL,
+	[VAL40] [nvarchar](max) NULL,
+	[VAL41] [nvarchar](max) NULL,
+	[VAL42] [nvarchar](max) NULL,
+	[VAL43] [nvarchar](max) NULL,
+	[VAL44] [nvarchar](max) NULL,
+	[VAL45] [nvarchar](max) NULL,
+	[VAL46] [nvarchar](max) NULL,
+	[VAL47] [nvarchar](max) NULL,
+	[VAL48] [nvarchar](max) NULL,
+	[VAL49] [nvarchar](max) NULL,
+	[VAL50] [nvarchar](max) NULL,
+	[VAL51] [nvarchar](max) NULL,
+	[VAL52] [nvarchar](max) NULL,
+	[VAL53] [nvarchar](max) NULL,
+	[VAL54] [nvarchar](max) NULL,
+	[VAL55] [nvarchar](max) NULL,
+	[VAL56] [nvarchar](max) NULL,
+	[VAL57] [nvarchar](max) NULL,
+	[VAL58] [nvarchar](max) NULL,
+	[VAL59] [nvarchar](max) NULL,
+	[VAL60] [nvarchar](max) NULL,
+	[VAL61] [nvarchar](max) NULL,
+	[VAL62] [nvarchar](max) NULL,
+	[VAL63] [nvarchar](max) NULL,
+	[VAL64] [nvarchar](max) NULL,
+	[VAL65] [nvarchar](max) NULL,
+	[VAL66] [nvarchar](max) NULL,
+	[VAL67] [nvarchar](max) NULL,
+	[VAL68] [nvarchar](max) NULL,
+	[VAL69] [nvarchar](max) NULL,
+	[VAL70] [nvarchar](max) NULL,
+	[VAL71] [nvarchar](max) NULL,
+	[VAL72] [nvarchar](max) NULL,
+	[VAL73] [nvarchar](max) NULL,
+	[VAL74] [nvarchar](max) NULL,
+	[VAL75] [nvarchar](max) NULL,
+	[VAL76] [nvarchar](max) NULL,
+	[VAL77] [nvarchar](max) NULL,
+	[VAL78] [nvarchar](max) NULL,
+	[VAL79] [nvarchar](max) NULL,
+	[VAL80] [nvarchar](max) NULL,
+	[VAL81] [nvarchar](max) NULL,
+	[VAL82] [nvarchar](max) NULL,
+	[VAL83] [nvarchar](max) NULL,
+	[VAL84] [nvarchar](max) NULL,
+	[VAL85] [nvarchar](max) NULL,
+	[VAL86] [nvarchar](max) NULL,
+	[VAL87] [nvarchar](max) NULL,
+	[VAL88] [nvarchar](max) NULL,
+	[VAL89] [nvarchar](max) NULL,
+	[VAL90] [nvarchar](max) NULL,
+	[VAL91] [nvarchar](max) NULL,
+	[VAL92] [nvarchar](max) NULL,
+	[VAL93] [nvarchar](max) NULL,
+	[VAL94] [nvarchar](max) NULL,
+	[VAL95] [nvarchar](max) NULL,
+	[VAL96] [nvarchar](max) NULL,
+	[VAL97] [nvarchar](max) NULL,
+	[VAL98] [nvarchar](max) NULL,
+	[VAL99] [nvarchar](max) NULL,
+	[VAL100] [nvarchar](max) NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[MigratedListData_Learnet]    Script Date: 9/7/2018 5:05:50 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[MigratedListData_Learnet](
+	[DataRowID] [int] IDENTITY(1,1) NOT NULL,
+	[ListDefinationRowID] [int] NOT NULL,
+	[VAL1] [nvarchar](max) NULL,
+	[VAL2] [nvarchar](max) NULL,
+	[VAL3] [nvarchar](max) NULL,
+	[VAL4] [nvarchar](max) NULL,
+	[VAL5] [nvarchar](max) NULL,
+	[VAL6] [nvarchar](max) NULL,
+	[VAL7] [nvarchar](max) NULL,
+	[VAL8] [nvarchar](max) NULL,
+	[VAL9] [nvarchar](max) NULL,
+	[VAL10] [nvarchar](max) NULL,
+	[VAL11] [nvarchar](max) NULL,
+	[VAL12] [nvarchar](max) NULL,
+	[VAL13] [nvarchar](max) NULL,
+	[VAL14] [nvarchar](max) NULL,
+	[VAL15] [nvarchar](max) NULL,
+	[VAL16] [nvarchar](max) NULL,
+	[VAL17] [nvarchar](max) NULL,
+	[VAL18] [nvarchar](max) NULL,
+	[VAL19] [nvarchar](max) NULL,
+	[VAL20] [nvarchar](max) NULL,
+	[VAL21] [nvarchar](max) NULL,
+	[VAL22] [nvarchar](max) NULL,
+	[VAL23] [nvarchar](max) NULL,
+	[VAL24] [nvarchar](max) NULL,
+	[VAL25] [nvarchar](max) NULL,
+	[VAL26] [nvarchar](max) NULL,
+	[VAL27] [nvarchar](max) NULL,
+	[VAL28] [nvarchar](max) NULL,
+	[VAL29] [nvarchar](max) NULL,
+	[VAL30] [nvarchar](max) NULL,
+	[VAL31] [nvarchar](max) NULL,
+	[VAL32] [nvarchar](max) NULL,
+	[VAL33] [nvarchar](max) NULL,
+	[VAL34] [nvarchar](max) NULL,
+	[VAL35] [nvarchar](max) NULL,
+	[VAL36] [nvarchar](max) NULL,
+	[VAL37] [nvarchar](max) NULL,
+	[VAL38] [nvarchar](max) NULL,
+	[VAL39] [nvarchar](max) NULL,
+	[VAL40] [nvarchar](max) NULL,
+	[VAL41] [nvarchar](max) NULL,
+	[VAL42] [nvarchar](max) NULL,
+	[VAL43] [nvarchar](max) NULL,
+	[VAL44] [nvarchar](max) NULL,
+	[VAL45] [nvarchar](max) NULL,
+	[VAL46] [nvarchar](max) NULL,
+	[VAL47] [nvarchar](max) NULL,
+	[VAL48] [nvarchar](max) NULL,
+	[VAL49] [nvarchar](max) NULL,
+	[VAL50] [nvarchar](max) NULL,
+	[VAL51] [nvarchar](max) NULL,
+	[VAL52] [nvarchar](max) NULL,
+	[VAL53] [nvarchar](max) NULL,
+	[VAL54] [nvarchar](max) NULL,
+	[VAL55] [nvarchar](max) NULL,
+	[VAL56] [nvarchar](max) NULL,
+	[VAL57] [nvarchar](max) NULL,
+	[VAL58] [nvarchar](max) NULL,
+	[VAL59] [nvarchar](max) NULL,
+	[VAL60] [nvarchar](max) NULL,
+	[VAL61] [nvarchar](max) NULL,
+	[VAL62] [nvarchar](max) NULL,
+	[VAL63] [nvarchar](max) NULL,
+	[VAL64] [nvarchar](max) NULL,
+	[VAL65] [nvarchar](max) NULL,
+	[VAL66] [nvarchar](max) NULL,
+	[VAL67] [nvarchar](max) NULL,
+	[VAL68] [nvarchar](max) NULL,
+	[VAL69] [nvarchar](max) NULL,
+	[VAL70] [nvarchar](max) NULL,
+	[VAL71] [nvarchar](max) NULL,
+	[VAL72] [nvarchar](max) NULL,
+	[VAL73] [nvarchar](max) NULL,
+	[VAL74] [nvarchar](max) NULL,
+	[VAL75] [nvarchar](max) NULL,
+	[VAL76] [nvarchar](max) NULL,
+	[VAL77] [nvarchar](max) NULL,
+	[VAL78] [nvarchar](max) NULL,
+	[VAL79] [nvarchar](max) NULL,
+	[VAL80] [nvarchar](max) NULL,
+	[VAL81] [nvarchar](max) NULL,
+	[VAL82] [nvarchar](max) NULL,
+	[VAL83] [nvarchar](max) NULL,
+	[VAL84] [nvarchar](max) NULL,
+	[VAL85] [nvarchar](max) NULL,
+	[VAL86] [nvarchar](max) NULL,
+	[VAL87] [nvarchar](max) NULL,
+	[VAL88] [nvarchar](max) NULL,
+	[VAL89] [nvarchar](max) NULL,
+	[VAL90] [nvarchar](max) NULL,
+	[VAL91] [nvarchar](max) NULL,
+	[VAL92] [nvarchar](max) NULL,
+	[VAL93] [nvarchar](max) NULL,
+	[VAL94] [nvarchar](max) NULL,
+	[VAL95] [nvarchar](max) NULL,
+	[VAL96] [nvarchar](max) NULL,
+	[VAL97] [nvarchar](max) NULL,
+	[VAL98] [nvarchar](max) NULL,
+	[VAL99] [nvarchar](max) NULL,
+	[VAL100] [nvarchar](max) NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[MigratedListDataComment]    Script Date: 9/7/2018 5:05:50 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[MigratedListDataComment](
+	[ListDefinationRowID] [int] NOT NULL,
+	[ListDataItemID] [int] NOT NULL,
+	[Body] [nvarchar](max) NULL,
+	[Author] [nvarchar](150) NULL,
+	[CreatedDate] [datetime] NULL,
+	[CommentID] [int] NOT NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[MigratedListDefination]    Script Date: 9/7/2018 5:05:50 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[MigratedListDefination](
+	[RowID] [int] IDENTITY(1,1) NOT NULL,
+	[SiteCollection] [nvarchar](250) NULL,
+	[Subsite] [nvarchar](250) NULL,
+	[ListName] [nvarchar](250) NULL,
+	[VAL1] [nvarchar](50) NULL,
+	[VAL2] [nvarchar](50) NULL,
+	[VAL3] [nvarchar](50) NULL,
+	[VAL4] [nvarchar](50) NULL,
+	[VAL5] [nvarchar](50) NULL,
+	[VAL6] [nvarchar](50) NULL,
+	[VAL7] [nvarchar](50) NULL,
+	[VAL8] [nvarchar](50) NULL,
+	[VAL9] [nvarchar](50) NULL,
+	[VAL10] [nvarchar](50) NULL,
+	[VAL11] [nvarchar](50) NULL,
+	[VAL12] [nvarchar](50) NULL,
+	[VAL13] [nvarchar](50) NULL,
+	[VAL14] [nvarchar](50) NULL,
+	[VAL15] [nvarchar](50) NULL,
+	[VAL16] [nvarchar](50) NULL,
+	[VAL17] [nvarchar](50) NULL,
+	[VAL18] [nvarchar](50) NULL,
+	[VAL19] [nvarchar](50) NULL,
+	[VAL20] [nvarchar](50) NULL,
+	[VAL21] [nvarchar](50) NULL,
+	[VAL22] [nvarchar](50) NULL,
+	[VAL23] [nvarchar](50) NULL,
+	[VAL24] [nvarchar](50) NULL,
+	[VAL25] [nvarchar](50) NULL,
+	[VAL26] [nvarchar](50) NULL,
+	[VAL27] [nvarchar](50) NULL,
+	[VAL28] [nvarchar](50) NULL,
+	[VAL29] [nvarchar](50) NULL,
+	[VAL30] [nvarchar](50) NULL,
+	[VAL31] [nvarchar](50) NULL,
+	[VAL32] [nvarchar](50) NULL,
+	[VAL33] [nvarchar](50) NULL,
+	[VAL34] [nvarchar](50) NULL,
+	[VAL35] [nvarchar](50) NULL,
+	[VAL36] [nvarchar](50) NULL,
+	[VAL37] [nvarchar](50) NULL,
+	[VAL38] [nvarchar](50) NULL,
+	[VAL39] [nvarchar](50) NULL,
+	[VAL40] [nvarchar](50) NULL,
+	[VAL41] [nvarchar](50) NULL,
+	[VAL42] [nvarchar](50) NULL,
+	[VAL43] [nvarchar](50) NULL,
+	[VAL44] [nvarchar](50) NULL,
+	[VAL45] [nvarchar](50) NULL,
+	[VAL46] [nvarchar](50) NULL,
+	[VAL47] [nvarchar](50) NULL,
+	[VAL48] [nvarchar](50) NULL,
+	[VAL49] [nvarchar](50) NULL,
+	[VAL50] [nvarchar](50) NULL,
+	[VAL51] [nvarchar](50) NULL,
+	[VAL52] [nvarchar](50) NULL,
+	[VAL53] [nvarchar](50) NULL,
+	[VAL54] [nvarchar](50) NULL,
+	[VAL55] [nvarchar](50) NULL,
+	[VAL56] [nvarchar](50) NULL,
+	[VAL57] [nvarchar](50) NULL,
+	[VAL58] [nvarchar](50) NULL,
+	[VAL59] [nvarchar](50) NULL,
+	[VAL60] [nvarchar](50) NULL,
+	[VAL61] [nvarchar](50) NULL,
+	[VAL62] [nvarchar](50) NULL,
+	[VAL63] [nvarchar](50) NULL,
+	[VAL64] [nvarchar](50) NULL,
+	[VAL65] [nvarchar](50) NULL,
+	[VAL66] [nvarchar](50) NULL,
+	[VAL67] [nvarchar](50) NULL,
+	[VAL68] [nvarchar](50) NULL,
+	[VAL69] [nvarchar](50) NULL,
+	[VAL70] [nvarchar](50) NULL,
+	[VAL71] [nvarchar](50) NULL,
+	[VAL72] [nvarchar](50) NULL,
+	[VAL73] [nvarchar](50) NULL,
+	[VAL74] [nvarchar](50) NULL,
+	[VAL75] [nvarchar](50) NULL,
+	[VAL76] [nvarchar](50) NULL,
+	[VAL77] [nvarchar](50) NULL,
+	[VAL78] [nvarchar](50) NULL,
+	[VAL79] [nvarchar](50) NULL,
+	[VAL80] [nvarchar](50) NULL,
+	[VAL81] [nvarchar](50) NULL,
+	[VAL82] [nvarchar](50) NULL,
+	[VAL83] [nvarchar](50) NULL,
+	[VAL84] [nvarchar](50) NULL,
+	[VAL85] [nvarchar](50) NULL,
+	[VAL86] [nvarchar](50) NULL,
+	[VAL87] [nvarchar](50) NULL,
+	[VAL88] [nvarchar](50) NULL,
+	[VAL89] [nvarchar](50) NULL,
+	[VAL90] [nvarchar](50) NULL,
+	[VAL91] [nvarchar](50) NULL,
+	[VAL92] [nvarchar](50) NULL,
+	[VAL93] [nvarchar](50) NULL,
+	[VAL94] [nvarchar](50) NULL,
+	[VAL95] [nvarchar](50) NULL,
+	[VAL96] [nvarchar](50) NULL,
+	[VAL97] [nvarchar](50) NULL,
+	[VAL98] [nvarchar](50) NULL,
+	[VAL99] [nvarchar](50) NULL,
+	[VAL100] [nvarchar](50) NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[MigratedListItemEmbededDocument]    Script Date: 9/7/2018 5:05:50 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[MigratedListItemEmbededDocument](
+	[RowID] [int] IDENTITY(1,1) NOT NULL,
+	[SiteCollection] [nvarchar](50) NULL,
+	[SubSite] [nvarchar](150) NOT NULL,
+	[ListDefinationRowID] [int] NULL,
+	[DocumentParentRowID] [int] NULL,
+	[Filepath] [nvarchar](max) NOT NULL,
+	[Downloaded] [bit] NOT NULL,
+	[Downloadable] [bit] NOT NULL,
+	[DownloadPath] [nvarchar](max) NULL,
+	[AttachmentType] [nchar](10) NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[MigratedSiteDetails]    Script Date: 9/7/2018 5:05:50 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[MigratedSiteDetails](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[SiteCollection] [nvarchar](50) NULL,
+	[Subsite] [nvarchar](50) NOT NULL,
+	[SiteUrl] [nvarchar](max) NOT NULL,
+	[ToBeMigrated] [int] NOT NULL,
+	[MigratedStatus] [nvarchar](20) NOT NULL,
+	[Mapping] [nvarchar](50) NULL,
+	[Channel] [nvarchar](50) NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[temp_learnet]    Script Date: 9/7/2018 5:05:50 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[temp_learnet](
+	[channel] [nvarchar](max) NULL,
+	[blogid] [int] NULL,
+	[title] [nvarchar](max) NULL,
+	[type] [nchar](10) NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[BLOGDETAILS] ADD  CONSTRAINT [DF_BLOGDETAILS_hasComment]  DEFAULT ((0)) FOR [hasComment]
+GO
+ALTER TABLE [dbo].[BLOGDETAILS] ADD  CONSTRAINT [DF_BLOGDETAILS]  DEFAULT ((0)) FOR [likeCount]
+GO
+ALTER TABLE [dbo].[BLOGDETAILS] ADD  CONSTRAINT [DF_BLOGDETAILS_HASATTACHMENT]  DEFAULT ((0)) FOR [hasAttachement]
+GO
+ALTER TABLE [dbo].[BLOGDETAILS] ADD  CONSTRAINT [DF_BLOGDETAILS_migrationstatus]  DEFAULT (N'No') FOR [migrated]
+GO
+ALTER TABLE [dbo].[BLOGDETAILS] ADD  CONSTRAINT [DF_BLOGDETAILS_CategoryType]  DEFAULT ('T') FOR [CategoryType]
+GO
+ALTER TABLE [dbo].[BLOGDETAILS] ADD  CONSTRAINT [DF_BLOGDETAILS_Issue]  DEFAULT ('No') FOR [Issue]
+GO
+ALTER TABLE [dbo].[MigratedListItemEmbededDocument] ADD  CONSTRAINT [DF_Table_1_Download]  DEFAULT ((0)) FOR [Downloaded]
+GO
+ALTER TABLE [dbo].[MigratedListItemEmbededDocument] ADD  CONSTRAINT [DF_MigratedListItemEmbededDocument_Downloadable]  DEFAULT ((0)) FOR [Downloadable]
+GO
+ALTER TABLE [dbo].[MigratedListItemEmbededDocument] ADD  CONSTRAINT [DF_MigratedListItemEmbededDocument_AttachmentType]  DEFAULT (N'Normal') FOR [AttachmentType]
+GO
+ALTER TABLE [dbo].[MigratedSiteDetails] ADD  CONSTRAINT [DF_MigratedSiteDetails_ToBeMigrated]  DEFAULT ((0)) FOR [ToBeMigrated]
+GO
+ALTER TABLE [dbo].[MigratedSiteDetails] ADD  CONSTRAINT [DF_MigratedSiteDetails_MigratedStatus]  DEFAULT (N'InProgress') FOR [MigratedStatus]
+GO
+/****** Object:  StoredProcedure [dbo].[GETBLOGATTACHMENTS]    Script Date: 9/7/2018 5:05:50 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[GETBLOGATTACHMENTS]
+@SITECOLLECTION AS NVARCHAR(100),
+@SUBSITE AS NVARCHAR(100),
+@PARENTID INT
+AS
+BEGIN
+SELECT Filepath,DownloadPath,AttachmentType FROM MigratedListItemEmbededDocument 
+WHERE SiteCollection=@SITECOLLECTION AND SubSite=@SUBSITE AND DocumentParentRowID =@PARENTID
+AND Downloadable=1
+END
+
+
+GO
+/****** Object:  StoredProcedure [dbo].[GetBlogComments]    Script Date: 9/7/2018 5:05:50 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE procedure [dbo].[GetBlogComments]
+@SITECOLLECTION nvarchar(100),
+@SUBSITE nvarchar(100),
+@PARENTID INT
+
+as
+begin
+SELECT  SiteCollection,Subsite,BlogID,body,likedBy,likeCount,author,editor,parentID,
+created,modified
+FROM BLOGDETAILS where typeOfContent='reply' and SiteCollection=@SITECOLLECTION and Subsite=@SUBSITE
+and parentID=@PARENTID
+union 
+select  mld.SiteCollection,mld.Subsite,mldc.CommentID 'blogid',mldc.Body,'' 'likedby','' 'likcount',mldc.Author,mldc.Author 'editor',mldc.ListDataItemID 'parentID',
+mldc.CreatedDate 'created',
+mldc.CreatedDate 'modified'  from MigratedListDataComment mldc
+inner join MigratedListDefination mld 
+on mldc.ListDefinationRowID=mld.RowID
+where mld.SiteCollection=@SITECOLLECTION and mld.Subsite=@SUBSITE and mldc.ListDataItemID=@PARENTID
+end
+
+
+GO
+/****** Object:  StoredProcedure [dbo].[GETFINALBLOGTOUPLOAD]    Script Date: 9/7/2018 5:05:50 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[GETFINALBLOGTOUPLOAD]
+@SITECOLLECTION AS NVARCHAR(MAX),
+@Type as nvarchar(10) = 'T'
+AS
+BEGIN
+SELECT top 5600 BD.*
+FROM BLOGDETAILS BD INNER JOIN MigratedSiteDetails SD
+ON SD.SiteCollection=BD.SiteCollection AND SD.Subsite=BD.Subsite
+WHERE SD.MigratedStatus='LDOCUME' AND parentID=0 AND migrated='No' and  (categories !='mycorner' and keyarea !='mycorner')
+AND (keyArea IS NOT NULL OR contentType IS NOT NULL) AND issue is null AND CategoryType=@Type
+AND (BD.SiteCollection =@SITECOLLECTION OR BD.Subsite=@SITECOLLECTION) --AND PROJECT NOT IN ('RETAIL','JIO')
+--AND BD.moderationStatus='Approved'
+ORDER BY BD.SiteCollection,BD.Subsite, BlogID
+
+--SELECT B.*, M.Channel
+----update b set b.channel=M.Channel
+--FROM BLOGDETAILS B INNER JOIN
+--(
+--SELECT [SUBJECT],ApprovalStatus 'STATUS' , [Key Area ( as per new list)] 'KEYAREA' , Channel,Contenttype FROM RETAILText WHERE ApprovalStatus !='REJECTED'
+--union
+--SELECT [SUBJECT],[STATUS],[Key Area ( as per new list)] 'KEYAREA',Channel,ContentType FROM RETAILVIDEO WHERE F14 IS NULL and [Status] not in ('pending','hide')
+--) M ON B.title=M.[Subject] and b.keyArea =m.KEYAREA and b.contentType =m.Contenttype
+-- WHERE SUBSITE='LEARNET' AND typeOfContent='TOPIC' AND project='RETAIL' AND moderationStatus='APPROVED'
+
+END
+
+--select * from update BLOGDETAILS set hasAttachement=0 where id =6378
+
+GO
+/****** Object:  StoredProcedure [dbo].[GetSiteMappingDetails]    Script Date: 9/7/2018 5:05:50 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[GetSiteMappingDetails] 
+	@siteUrl nvarchar(100)
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+	SELECT * FROM [dbo].[KeyArea_ContentType_Mapping] WHERE
+	ID IN (
+			SELECT VALUE FROM [dbo].[FnSplit] (
+	(SELECT Mapping FROM MigratedSiteDetails WHERE SiteUrl=@siteUrl) ,';'))
+
+END
+
+
+
+GO
+/****** Object:  StoredProcedure [dbo].[OperationMigratedListDataComment]    Script Date: 9/7/2018 5:05:50 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE procedure [dbo].[OperationMigratedListDataComment]
+@ListDefinationid int,
+@ListDataItemid int,
+@body nvarchar(max),
+@author nvarchar(150),
+@created datetime,
+@commentid int
+as
+begin
+declare @cnt as int
+print @ListDefinationid
+print @ListDataItemid
+print @commentid
+select @cnt = count(*) from [dbo].[MigratedListDataComment] where ListDefinationRowID=@ListDefinationid and ListDataItemID=@ListDataItemid and CommentID=@commentid
+--print @cnt
+ if  @cnt =0
+ begin
+ insert into [dbo].[MigratedListDataComment] values (@ListDefinationid,@ListDataItemid,@body,@author,@created,@commentid)
+ end
+
+end
+
+
+
+GO
+/****** Object:  StoredProcedure [dbo].[OperationMigratedListDefination]    Script Date: 9/7/2018 5:05:50 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE procedure [dbo].[OperationMigratedListDefination]
+@sitecollection nvarchar(100),
+@subsite nvarchar(100),
+@listname nvarchar(100),
+@insertQuery nvarchar(max)
+as
+begin
+declare @cnt as int
+
+select @cnt = count(*) from [dbo].[MigratedListDefination] where SiteCollection = @sitecollection and Subsite=@subsite and ListName=@listname
+	if @cnt =0
+	begin
+		exec (@insertQuery);
+	end
+end
+
+
+
+GO
+/****** Object:  StoredProcedure [dbo].[OperationMigratedListItem]    Script Date: 9/7/2018 5:05:50 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE procedure [dbo].[OperationMigratedListItem]
+@wherequery nvarchar(max)=null,
+@insertQuery nvarchar(max) =null,
+@TYPE NVARCHAR(15) = 'INSERT',
+@SITECOLLECTION NVARCHAR(100) = '',
+@SUBSITE NVARCHAR(100) ='',
+@ListName NVARCHAR(100) =''
+as
+begin
+IF @TYPE = 'INSERT'
+BEGIN
+	declare @cnt1 as int
+	declare @selectQuery nvarchar(max)
+	set @selectQuery = 'Select @cnt=count(*) from [dbo].[MigratedListData] where ' + @wherequery
+	EXECUTE sp_executesql @selectQuery , N'@cnt int Output', @cnt=@cnt1 OUTPUT
+	--print @cnt1
+	 if  @cnt1 =0
+	 begin
+	 exec (@insertQuery);
+	 end
+END
+ELSE IF @TYPE ='SELECT'
+BEGIN
+ SELECT MLD.* FROM MigratedListData MLD
+ INNER JOIN MigratedListDefination MLDF
+ ON MLD.ListDefinationRowID = MLDF.RowID
+ WHERE MLDF.SiteCollection=@SITECOLLECTION AND MLDF.Subsite=@SUBSITE AND MLDF.ListName=@ListName
+ ORDER BY MLD.DataRowID
+END
+
+end
+
+
+
+GO
+/****** Object:  StoredProcedure [dbo].[OperationMigratedSiteDetails]    Script Date: 9/7/2018 5:05:50 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE Procedure [dbo].[OperationMigratedSiteDetails]
+@siteCollection nvarchar(100),
+@subsite nvarchar(100),
+@siteurl nvarchar(100),
+@migrationStatus nvarchar(100) ='Inprogress',
+@type nvarchar(10) = 'insert'
+
+as
+begin
+	declare @cnt int
+	
+	if @type = 'insert'
+	begin	
+		select @cnt= count(*) from [dbo].[MigratedSiteDetails] where siteCollection=@siteCollection and subsite =@subsite and siteurl=@siteurl
+		if @cnt=0
+		begin
+			insert into [dbo].[MigratedSiteDetails] (siteCollection,subsite,siteurl) values (@siteCollection,@subsite,@siteurl)
+		end
+	end
+	else if @type = 'update'
+	begin
+		if @migrationStatus != 'Inprogress'
+		begin			
+			update [dbo].[MigratedSiteDetails] set migratedStatus = @migrationStatus where SiteUrl=@siteurl
+		end
+	end		
+	else if @type = 'select' 
+	begin
+		if @migrationStatus='LDATAM'
+		begin
+		if @siteCollection = '' and @subsite =''
+		begin
+			Select MSD.*,MLD.ListName from [dbo].[MigratedSiteDetails] MSD LEFT JOIN MigratedListDefination MLD 
+			ON MSD.SiteCollection=MLD.SiteCollection AND MSD.Subsite=MLD.Subsite
+			where MSD.tobemigrated=1 AND MSD.migratedstatus =@migrationStatus
+		END
+		ELSE BEGIN
+		Select MSD.*,MLD.ListName from [dbo].[MigratedSiteDetails] MSD LEFT JOIN MigratedListDefination MLD 
+			ON MSD.SiteCollection=MLD.SiteCollection AND MSD.Subsite=MLD.Subsite
+			where MSD.tobemigrated=1 AND MSD.migratedstatus =@migrationStatus 
+			and 		(MLD.SiteCollection=@siteCollection or MLD.Subsite=@subsite)	and migratedstatus =@migrationStatus
+		END
+		end
+		else begin
+		if @siteCollection = '' and @subsite =''
+		begin
+		Select * from [dbo].[MigratedSiteDetails] where tobemigrated=1 and migratedstatus =@migrationStatus
+		end
+		else
+		begin
+		Select * from [dbo].[MigratedSiteDetails] where tobemigrated=1 and 
+		(SiteCollection=@siteCollection or Subsite=@subsite)	and migratedstatus =@migrationStatus
+		end
+		end
+	end
+	
+end
+
+
+
+GO
+/****** Object:  StoredProcedure [dbo].[OperationONBlogDetails]    Script Date: 9/7/2018 5:05:50 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+/****** Object:  StoredProcedure [dbo].[OperationONBlogDetails]    Script Date: 19-01-2018 12:44:59 ******/
+
+--drop PROCEDURE [dbo].[OperationONBlogDetails] 
+
+CREATE PROCEDURE [dbo].[OperationONBlogDetails] 
+	@TYPE NVARCHAR(20),	
+	@UPDATEDID INT =0,
+	@STATUS NCHAR(3)='YES',
+	--@INSERTSTATEMENT NVARCHAR(max)=NULL,
+	@SITECOLLECTION NVARCHAR(200)=NULL,
+	@SUBSITE NVARCHAR(200)=NULL,
+	@MIGRATIONCOMMENT NVARCHAR(MAX)=NULL
+	,	@BLGTBL Blogtbl READONLY
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+    IF @TYPE = 'INSERT'
+	BEGIN
+	----EXEC (@INSERTSTATEMENT);
+	INSERT INTO  [dbo].[BLOGDETAILS] (
+      [SiteCollection] ,[Subsite] ,[BlogID] ,[title],[body],[likedBy],[categories],[keyArea]
+      ,[contentType],[moderationStatus],hasComment ,[likeCount],[author],[editor],[typeOfContent]
+	  ,[parentID],[hasAttachement] ,[created] ,[modified] ,[published],[CategoryType],[ThumnailPath],[project],[filepath],[Channel])
+	  SELECT [SiteCollection] ,[Subsite] ,[BlogID] ,[title],[body],[likedBy],[categories],[keyArea]
+      ,[contentType],[moderationStatus],hasComment ,[likeCount],[author],[editor],[typeOfContent]
+	  ,[parentID],[hasAttachement] ,[created] ,[modified] ,[published],[categoryType],[ThumnailPath],[project],[filepath],[Channel] FROM @BLGTBL
+
+	  UPDATE MigratedSiteDetails SET MigratedStatus='LDOCUMS' WHERE SiteCollection=@SITECOLLECTION AND Subsite=@SUBSITE
+	END
+	ELSE IF @TYPE = 'UDPATE'
+	BEGIN
+		UPDATE [dbo].[BLOGDETAILS] SET migrated=@STATUS , migrationComment = @MIGRATIONCOMMENT WHERE ID = @UPDATEDID
+	END
+	ELSE IF @TYPE ='SELECT'
+	BEGIN
+		SELECT * FROM [dbo].[BLOGDETAILS] WHERE [SiteCollection]=@SITECOLLECTION AND [Subsite]= @SUBSITE AND migrated='NO'
+	END
+	
+END
+
+
+
+GO
+/****** Object:  StoredProcedure [dbo].[OPERATIONONMigratedListItemEmbededDocument]    Script Date: 9/7/2018 5:05:50 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE procedure [dbo].[OPERATIONONMigratedListItemEmbededDocument]
+@UPDATEID INT =0,
+@DOWNLOADEDPATH NVARCHAR(MAX)=NULL,
+@TYPE NVARCHAR(10) ='SELECT',
+@PARENTID INT =0,
+@INSERTSTATEMENT NVARCHAR(MAX)=NULL,
+@SUBSITE NVARCHAR(MAX) = '',
+@SITECOLLECTION NVARCHAR(MAX) = ''
+AS
+begin
+
+IF @TYPE = 'SELECT'
+BEGIN
+IF @SITECOLLECTION = '' OR @SUBSITE =''
+BEGIN
+	SELECT MLED.* FROM MigratedListItemEmbededDocument MLED INNER JOIN MigratedListDefination MLD ON MLED.ListDefinationRowID=MLD.RowID
+	INNER JOIN MigratedSiteDetails MSD ON MLD.SiteCollection=MSD.SiteCollection AND MLD.Subsite=MSD.Subsite
+	WHERE msd.MigratedStatus='LDOCUMS' AND MSD.ToBeMigrated=1 AND MLED.Downloadable=1 AND MLED.Downloaded=0 ORDER BY RowID
+END
+ELSE
+BEGIN
+	SELECT MLED.* FROM MigratedListItemEmbededDocument MLED INNER JOIN MigratedListDefination MLD ON MLED.ListDefinationRowID=MLD.RowID
+	INNER JOIN MigratedSiteDetails MSD ON MLD.SiteCollection=MSD.SiteCollection AND MLD.Subsite=MSD.Subsite
+	WHERE msd.MigratedStatus='LDOCUMS' AND MSD.ToBeMigrated=1 AND MLED.Downloadable=1 AND MLED.Downloaded=0 AND (MLD.SiteCollection=@SITECOLLECTION OR MLD.Subsite=@SUBSITE) ORDER BY RowID
+END
+END
+ELSE IF @TYPE = 'UPDATE'
+BEGIN
+	IF @DOWNLOADEDPATH IS NULL
+	BEGIN
+	UPDATE [dbo].[MigratedListItemEmbededDocument] 	set downloaded=0   where rowid=@UPDATEID
+	END
+	ELSE
+	BEGIN
+	UPDATE [dbo].[MigratedListItemEmbededDocument] 	set downloaded=1 , DownloadPath=@DOWNLOADEDPATH where rowid=@UPDATEID
+	END
+
+	DECLARE @CNT AS INT
+	select @CNT = COUNT(*) from  [dbo].[MigratedListItemEmbededDocument] MLIED 
+	WHERE ListDefinationRowID = @PARENTID AND Downloadable=1 AND Downloaded=0
+	IF @CNT =0
+	BEGIN		
+		--UPDATE MigratedSiteDetails SET MigratedStatus='LDOCUME' 
+		--WHERE ToBeMigrated=1 AND MigratedStatus='LDOCUMS' AND ID=@PARENTID
+		UPDATE MSD SET MSD.MigratedStatus='LDOCUME' FROM MigratedSiteDetails MSD
+					INNER JOIN MigratedListDefination MLD
+					ON MSD.SiteCollection=MLD.SiteCollection AND MSD.Subsite=MLD.Subsite
+					WHERE MLD.RowID=@PARENTID AND MSD.MigratedStatus='LDOCUMS'
+	END
+END
+ELSE IF @TYPE = 'INSERT'
+BEGIN
+exec (@INSERTSTATEMENT);
+END
+
+end
+
+
+
+GO
+/****** Object:  StoredProcedure [dbo].[SETCOMMENTSTATUSFORBLOG]    Script Date: 9/7/2018 5:05:50 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[SETCOMMENTSTATUSFORBLOG]
+@sitecollection nvarchar(100),
+@subsite nvarchar(100)
+ AS
+ BEGIN
+ update B set b.hascomment=1 from BLOGDETAILS b join
+(select bdc.ID, bdc.SiteCollection,bdc.Subsite,bdc.BlogID,bdt.parentID from BLOGDETAILS bdc inner join
+ (select distinct parentID, SiteCollection, Subsite from BLOGDETAILS where parentID >0) bdt
+ on bdc.BlogID=bdt.parentID and bdc.SiteCollection=bdt.SiteCollection and bdc.Subsite=bdt.Subsite) j
+ on b.ID=j.ID where b.SiteCollection=@sitecollection and b.Subsite=@subsite
+  
+ update B set b.hascomment=1 from BLOGDETAILS b join
+(select bd.ID  from BLOGDETAILS bd
+inner join 
+ (select distinct mld.SiteCollection,mld.Subsite,mldc.ListDataItemID from MigratedListDefination mld inner join
+ MigratedListDataComment mldc on mld.RowID = mldc.ListDefinationRowID ) md on bd.BlogID=md.ListDataItemID
+ and bd.SiteCollection=md.SiteCollection and bd.Subsite=md.Subsite ) j
+ on b.ID=j.ID where b.SiteCollection=@sitecollection and b.Subsite=@subsite
+
+ END
+
+
+
+GO
+/****** Object:  StoredProcedure [dbo].[SetMigratedEmbededDocument]    Script Date: 9/7/2018 5:05:50 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE procedure [dbo].[SetMigratedEmbededDocument]
+ @siteCollection nvarchar(100),
+ @subsite nvarchar(100)
+as
+begin
+
+Declare  @tempTable Table(
+Sitecollection nvarchar(max),
+Subsite nvarchar(max),
+ListDefinationRowID int,
+DatarowID int,
+FilePath nvarchar(max),
+ext nvarchar(max)
+)
+
+insert into @tempTable 
+select mld.SiteCollection,mld.Subsite,d.ListDefinationRowID,d.DataRowID,d.FilePath,ext
+ from MigratedListDefination mld
+inner join
+(select ListDefinationRowID, DataRowID ,substring(substring(val4, charindex('href="/',val4,0)+6,200),2,charindex('"',substring(val4, charindex('href="/',val4,0)+6,200))-2) 'FilePath'
+,RIGHT(substring(substring(val4, charindex('href="/',val4,0)+6,200),2,charindex('"',substring(val4, charindex('href="/',val4,0)+6,200))-2), CHARINDEX('.',REVERSE(substring(substring(val4, charindex('href="/',val4,0)+6,200),2,charindex('"',substring(val4, charindex('href="/',val4,0)+6,200))-2)))-1) 'ext'
+from  [dbo].[MigratedListData]		mld
+inner join  MigratedSiteDetails msd
+on mld.ListDefinationRowID=msd.ID
+where 
+( val4 like '%href="/%' and val4 not like '%href="/"%')
+--and  RIGHT(substring(substring(val4, charindex('href="/',val4,0)+6,200),2,charindex('"',substring(val4, charindex('href="/',val4,0)+6,200))-2), CHARINDEX('.',REVERSE(substring(substring(val4, charindex('href="/',val4,0)+6,200),2,charindex('"',substring(val4, charindex('href="/',val4,0)+6,200))-2)))-1)
+--not in ('pdf','pps','ppsx','ppt','pptx','xlsx','xps','docx','doc','xls')
+and msd.ToBeMigrated=1 and msd.MigratedStatus='LDATAM' and msd.SiteCollection=@siteCollection and msd.Subsite=@subsite) D
+ on mld.RowID=d.ListDefinationRowID
+
+--Not Dowloadable
+Insert into [dbo].[MigratedListItemEmbededDocument] (siteCollection,subsite,ListDefinationRowID,documentparentrowid,filepath,downloaded,downloadable)
+select Sitecollection,Subsite,ListDefinationRowID,DatarowID,FilePath,0,0 from @tempTable
+where ext not in  ('pdf','pps','ppsx','ppt','pptx','xlsx','xps','docx','doc','xls')
+
+ --downloadedable
+ Insert into [dbo].[MigratedListItemEmbededDocument] (siteCollection,subsite,ListDefinationRowID,documentparentrowid,filepath,downloaded,downloadable)
+ select Sitecollection,Subsite,ListDefinationRowID,DatarowID,FilePath,0,1 from @tempTable
+where ext  in  ('pdf','pps','ppsx','ppt','pptx','xlsx','xps','docx','doc','xls')
+
+ Insert into [dbo].[MigratedListItemEmbededDocument] (siteCollection,subsite,ListDefinationRowID,documentparentrowid,filepath,downloaded,downloadable)
+select mld.SiteCollection,mld.Subsite,d.ListDefinationRowID,d.DataRowID,d.FilePath,0,1
+ from MigratedListDefination mld
+inner join
+(
+select ListDefinationRowID, DataRowID ,val4
+,substring(substring(val4, charindex('src="/',val4,0)+5,200),2,charindex('"',substring(val4, charindex('src="/',val4,0)+5,200))-2) 'FilePath'
+,RIGHT(substring(substring(val4, charindex('src="/',val4,0)+6,200),2,charindex('"',substring(val4, charindex('src="/',val4,0)+6,200))-2), CHARINDEX('.',REVERSE(substring(substring(val4, charindex('src="/',val4,0)+6,200),2,charindex('"',substring(val4, charindex('src="/',val4,0)+6,200))-2)))-1) 'ext'
+from  [dbo].[MigratedListData]		mld
+inner join  MigratedSiteDetails msd
+on mld.ListDefinationRowID=msd.ID
+where val4 like '%src="/%' and substring(substring(val4, charindex('src="/',val4,0)+6,200),2,charindex('"',substring(val4, charindex('src="/',val4,0)+6,200))-2) not like '%layouts%'
+and msd.ToBeMigrated=1 and msd.MigratedStatus='LDATAM' and msd.SiteCollection=@siteCollection and msd.Subsite=@subsite ) D
+ on mld.RowID=d.ListDefinationRowID
+
+
+ update MigratedSiteDetails set  MigratedStatus='LDOCUMS' WHERE SiteCollection=@siteCollection
+ AND Subsite=@subsite AND ToBeMigrated=1
+
+end
+
+
+
+GO
+/****** Object:  StoredProcedure [dbo].[UPDATEMIGRATIONSTATUSFORSITE]    Script Date: 9/7/2018 5:05:50 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[UPDATEMIGRATIONSTATUSFORSITE]
+@SITECOLLECTION NVARCHAR(100),
+@SUBSITE NVARCHAR(100)
+AS
+BEGIN
+DECLARE @BLOGUNMIGRATEDCOUNT INT
+SELECT  @BLOGUNMIGRATEDCOUNT = COUNT(*) FROM BLOGDETAILS WHERE SiteCollection=@SITECOLLECTION AND Subsite=@SUBSITE AND migrated='NO' and moderationStatus='Approved' and typeOfContent='Topic'
+SELECT @BLOGUNMIGRATEDCOUNT
+IF @BLOGUNMIGRATEDCOUNT = 0
+BEGIN
+ DECLARE @SITEURL AS NVARCHAR(100)
+	
+	SELECT @SITEURL=SiteUrl FROM MigratedSiteDetails  WHERE SiteCollection=@SITECOLLECTION AND Subsite=@SUBSITE
+	EXEC [dbo].[OperationMigratedSiteDetails] @siteCollection =@SITECOLLECTION , @subsite=@SUBSITE,@siteurl=@SITEURL,@migrationStatus='Complete',@type='update'
+END
+END
+
+
+GO
